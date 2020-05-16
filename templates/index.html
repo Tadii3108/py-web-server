@@ -6,7 +6,53 @@
     <link rel="stylesheet" href='/static/style.css' />
 </head>
 <body>
-    <h1>My Website</h1>
-    <a href="/hello/tadiwa">Hi Tadiwa!</a>
+    <h1>BMI Calculator</h1>
+    <!--<a href="/hello/tadiwa">Hi Tadiwa!</a>-->
+
+    <form>
+    <div class="form-group">
+        <label class="sr-only" for="weight_in_kg">Enter Weight in kg</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="form-control" id="weight_in_kg" placeholder="Enter weight in kg">
+    </div>
+
+    <!--Last Name-->
+    <div class="form-group">
+        <label class="sr-only" for="height_in_foot_and_inches">Enter Height in foot and inches</label>
+        <input type="text" class="form-control" id="height_in_foot_and_inches" placeholder="Enter Height in foot and inches">
+        <p><i><font color="green">note: if your height is 5 feet 9 inches, type 5.9</font></i></p>
+    </div>
+
+    <!--Submit Button-->
+    <div>
+        <p></p>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+    </form>
+
+    <br>
+    <div id="output"></div>
+    <br>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!--ajax call to POST the output-->
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                $.ajax({
+                    data : {
+                        weight_in_kg : $('#weight_in_kg').val(),
+                        height_in_foot_and_inches : $('#height_in_foot_and_inches').val(),
+                    }
+                    type : 'POST',
+                    url : '/process'
+                })
+                .done(function(data) {
+                    $('#output').text(data.output).show();
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
 </body>
 </html>
