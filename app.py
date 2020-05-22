@@ -14,8 +14,8 @@ def process():
     bmi = float(output)
     if bmi <= 18.5:
         return jsonify({'output':'You are Under weight as your BMI is: ' + output})
-    elif (bmi >= 18.5) and (bmi <= 24.9):
-        return jsonify({'output':'Perfect! You are normal weight an your BMI is: ' + output})
+    elif (bmi >= 18.6) and (bmi <= 24.9):
+        return jsonify({'output':'Perfect! You are normal weight as your BMI is: ' + output})
     elif bmi >= 25 and bmi <= 29.9:
         return jsonify({'output':'You are overweight as  your BMI is: ' + output})
     elif bmi >= 30:
