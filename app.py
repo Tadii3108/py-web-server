@@ -9,7 +9,7 @@ def index():
 def process():
     weight_in_kg = float(request.form['weight_in_kg'])
     height_in_foot_and_inches = float(request.form['height_in_foot_and_inches'])
-    height_in_meters = 0.304 * float('height_in_foot_and_inches')
+    height_in_meters = 0.304 * float(height_in_foot_and_inches)
     output = str(weight_in_kg / (height_in_meters * height_in_meters))
     bmi = float(output)
     if bmi <= 18.5:
