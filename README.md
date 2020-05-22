@@ -1,5 +1,4 @@
 # BMI Calculator
-A web server that will be able to react to user inputting dynamic content, turning the website into a web application capable of doing more than just showing static information.
 _________________________________________
 # To run project on local machine
 1) Enter project: $ cd py-web-server
